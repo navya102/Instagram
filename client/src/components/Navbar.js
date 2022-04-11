@@ -15,11 +15,11 @@ const NavBar = ()=>{
        if(state){
            return [
             <li key="1" className="nav-item" ><i  data-target="modal1" className="large bi-search modal-trigger" style={{color:"black"}}>search</i></li>,
-            <li key="2" className="nav-item" ><Link className="nav-link " to="/profile">Profile</Link></li>,
-            <li key="3" className="nav-item" ><Link className="nav-link " to="/create">Create post</Link></li>,
-            <li key="4" className="nav-item" ><Link className="nav-link " to="/myfollowingpost">My following Posts</Link></li>,
+            <li key="2" className="nav-item" ><Link style={{ color:"black"}} className="nav-link " to="/profile">Profile</Link></li>,
+            <li key="3" className="nav-item" ><Link style={{ color:"black"}} className="nav-link " to="/create">Create post</Link></li>,
+            <li key="4" className="nav-item" ><Link style={{ color:"black"}} className="nav-link " to="/myfollowingpost">My following Posts</Link></li>,
             <li  key="5" className="nav-item" >
-             <button className="btn btn-danger nav-item"
+             <button className="btn btn-danger nav-item me-auto"
             onClick={()=>{
               localStorage.clear()
               dispatch({type:"CLEAR"})
