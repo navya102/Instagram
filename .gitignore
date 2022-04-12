@@ -1,2 +1,6 @@
 dev.js
+<<<<<<< HEAD
 /node_modules
+=======
+node_modules/
+>>>>>>> aeecfc24a53a6634bde9f10a8280a230a6ea1558
