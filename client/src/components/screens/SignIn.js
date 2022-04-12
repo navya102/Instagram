@@ -60,7 +60,7 @@ const SignIn  = ()=>{
                         
                     </div>
                     <div className="mb-3"> <button className="btn btn-darken w-100" style={{backgroundColor: "blue", padding:"12px", color: "aliceblue"}} onClick={()=>PostData()}
-                    >Sign up</button> </div>
+                    >Sign in</button> </div>
                 </div>
                     
                    
