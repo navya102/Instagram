@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import M from 'materialize-css'
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 const CretePost = ()=>{
-    const history = useHistory()
+    const navigate = useNavigate();
     const [title,setTitle] = useState("")
     const [body,setBody] = useState("")
     const [image,setImage] = useState("")
@@ -28,7 +28,7 @@ const CretePost = ()=>{
            }
            else{
                M.toast({html:"Created post Successfully",classes:"#43a047 green darken-1"})
-               history.push('/')
+               navigate('/')
            }
         }).catch(err=>{
             console.log(err)

@@ -1,5 +1,5 @@
 import React,{useContext,useRef,useEffect,useState} from 'react'
-import {Link ,useHistory} from 'react-router-dom'
+import {Link ,useNavigate} from 'react-router-dom'
 import {UserContext} from '../App'
 import M from 'materialize-css'
 const NavBar = ()=>{
@@ -7,7 +7,7 @@ const NavBar = ()=>{
     const [search,setSearch] = useState('')
     const [userDetails,setUserDetails] = useState([])
      const {state,dispatch} = useContext(UserContext)
-     const history = useHistory()
+     const navigate = useNavigate();
      useEffect(()=>{
          M.Modal.init(searchModal.current)
      },[])
@@ -23,7 +23,7 @@ const NavBar = ()=>{
             onClick={()=>{
               localStorage.clear()
               dispatch({type:"CLEAR"})
-              history.push('/signin')
+              navigate("/signin")
             }}
             >
                 Logout

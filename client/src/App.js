@@ -1,7 +1,7 @@
 import React,{useEffect,createContext,useReducer,useContext} from 'react';
 import NavBar from './components/Navbar'
 import "./App.css"
-import {BrowserRouter,Route,Routes,Switch,useHistory} from 'react-router-dom'
+import {BrowserRouter,Route,Routes,useNavigate} from 'react-router-dom'
 import Home from './components/screens/Home'
 import Signin from './components/screens/SignIn'
 import Profile from './components/screens/Profile'
@@ -16,7 +16,7 @@ export const UserContext = createContext()
 
 
 const Routing = ()=>{
-  const history = useHistory()
+  const navigate = useNavigate()
   const {state,dispatch} = useContext(UserContext)
   useEffect(()=>{
     const user = JSON.parse(localStorage.getItem("user"))
@@ -24,35 +24,33 @@ const Routing = ()=>{
       dispatch({type:"USER",payload:user})
     }else{
      
-           history.push('/signin')
+      navigate("/signin")
     }
   },[])
   return(
-    <Switch>
-      <Route exact path="/" >
-      <Home />
+    <Routes>
+      <Route exact path="/" element={<Home />}>
       </Route>
-      <Route path="/signin">
-        <Signin />
+      <Route path="/signin" element={<Signin />}>
+        
       </Route>
-      <Route path="/signup">
-        <Signup />
+      <Route path="/signup" element={<Signup />}>
+        
       </Route>
-      <Route exact path="/profile">
-        <Profile />
+      <Route exact path="/profile" element={ <Profile />}>
       </Route>
-      <Route path="/create">
-        <CreatePost/>
+      <Route path="/create" element={<CreatePost/>}>
+        
       </Route>
-      <Route path="/profile/:userid">
-        <UserProfile />
+      <Route path="/profile/:userid" element={<UserProfile />}>
+        
       </Route>
-      <Route path="/myfollowingpost">
-        <SubscribedUserPosts />
+      <Route path="/myfollowingpost" element={<SubscribedUserPosts />}>
+        
       </Route>
-     
+      </Routes>
       
-    </Switch>
+
   )
 }
 
@@ -62,7 +60,9 @@ function App() {
     <UserContext.Provider value={{state,dispatch}}>
     <BrowserRouter>
       <NavBar />
+    
       <Routing />
+      
       
     </BrowserRouter>
     </UserContext.Provider>
